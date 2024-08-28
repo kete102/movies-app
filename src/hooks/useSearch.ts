@@ -1,5 +1,14 @@
 import { useState, useRef, useEffect } from 'react'
 
+/**
+ * Custom hook to manage the search input state and validation logic.
+ *
+ * @returns {{
+ *   search: string,
+ *   setSearch: React.Dispatch<React.SetStateAction<string>>,
+ *   error: string
+ * }} Returns an object containing the search term, function to update it, and any error messages.
+ */
 export function useSearch() {
   const [search, setSearch] = useState('')
   const [error, setError] = useState('')

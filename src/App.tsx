@@ -41,8 +41,9 @@ function App() {
                 placeholder="The Avengers, Matrix, ..."
                 onChange={handleOnChange}
                 value={search}
+                aria-label="Movie search input"
               />
-              <button className="input-group-text">
+              <button className="input-group-text" aria-label="Search button">
                 <i className="bi bi-search"></i>
               </button>
             </form>
