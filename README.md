@@ -54,3 +54,10 @@ useMemo: Used to memoize computed results, such as the sorted movie list, avoidi
 **5. Error Handling**
 
 Search errors (such as an empty or too-short search term) are managed and displayed to the user through the error state in the useSearch hook.
+
+## 🔑 Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file:
+VITE_API_KEY=your_api_key_here
+
+Make sure to replace your_api_key_here with your actual API key. You can obtain the API key by registering on [https://www.omdbapi.com].
