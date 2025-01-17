@@ -3,7 +3,6 @@ import Filters from "./Filters"
 
 function MoviesContainer() {
   const {movies} = useMoviesContext()
-  console.log('Movies container: ', movies)
 
   if(!movies) {
     return (
@@ -12,13 +11,14 @@ function MoviesContainer() {
       </div>
     )
   }
+
   return (
     <div className="w-full h-full flex flex-col p-2 overflow-y-scroll">
       <section className="w-full flex justify-end px-2">
         <Filters />
       </section>
       <section className="flex-1">
-        {movies.map((movie) => (
+        {movies.map((movie: Movie) => (
         <article key={movie.id}>
             <h1>{movie.title}</h1>
           </article>
