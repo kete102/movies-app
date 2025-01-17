@@ -6,14 +6,16 @@ import { useMoviesContext } from '../hooks/useMoviesContext'
 function Form() {
   const {sortMovies} = useMoviesContext()
   const [value, setValue] = useState<string>('')
+  const [error, setError] = useState<string>('')
   const {getMovies} = useMovies()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement> ) => {
     const query = event.currentTarget.value
-    if(query.trim() !== '') {
-      setValue(query)
-      getMovies(value)
+    if(query.trim() === '') {
+      setError('Please, enter a movie to search')
     }
+    setValue(query)
+    getMovies(value)
   }
 
   return (
@@ -23,6 +25,7 @@ function Form() {
       </div>
       <input 
         type="search" 
+        autoFocus
         value={value}
         onChange={handleChange}
         id="default-search" 
@@ -33,6 +36,7 @@ function Form() {
         <label htmlFor="hs-default-checkbox" className="text-lg text-gray-500 mr-3 dark:text-neutral-400">Order (A-Z)</label>
         <input type="checkbox"  onChange={sortMovies} className="shrink-0  border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-default-checkbox"/>
       </div>
+      {error && <span>{error}</span>}
     </div>
   )
 }
