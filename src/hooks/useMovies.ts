@@ -1,15 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useMemo, useState } from "react"
+import { useCallback, useMemo,  useState } from "react"
 import { fetchMovies } from "../services/movies"
 import debounce from "debounce"
 import { useMoviesContext } from "./useMoviesContext"
 
 export function useMovies() {
   const [sort, setSort] = useState<boolean>(false)
-
   const {addMovies} = useMoviesContext()
 
-  const getMovies = async (title: string) => {
+  const getMovies = useCallback(async (title: string) => {
     if(!title) {
       console.log('No title')
       return
@@ -17,8 +16,8 @@ export function useMovies() {
 
     const newMovies = await fetchMovies({title})
     addMovies(newMovies)
-  }
-
+  },[]
+  )
   const debouncedMovies = useMemo(() => {
     return debounce(getMovies, 300)
   },[])
