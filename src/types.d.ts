@@ -4,6 +4,7 @@ interface Movie {
   genre: string[]
   poster: string | null
   releaseDate: string
+  overview: string
   rating: number
 }
 

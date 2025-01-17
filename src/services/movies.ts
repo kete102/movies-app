@@ -12,6 +12,7 @@ const mapMovies = (movies: APIMovie[]): Movie[] => {
       genre:movie.genre_ids.map(
         (genreId) => GENRES.find((genre) => genre.id === genreId)?.name || "Unknown"
       ),
+      overview: movie.overview,
       poster:`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`,
       releaseDate: movie.release_date ,
       rating: movie.vote_average,
