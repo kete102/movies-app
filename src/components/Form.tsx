@@ -5,13 +5,15 @@ import { useMoviesContext } from '../hooks/useMoviesContext'
 
 function Form() {
   const {sortMovies} = useMoviesContext()
-  const {getMovies} = useMovies()
   const [value, setValue] = useState<string>('')
+  const {getMovies} = useMovies()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement> ) => {
     const query = event.currentTarget.value
-    setValue(query)
-    getMovies(query)
+    if(query.trim() !== '') {
+      setValue(query)
+      getMovies(value)
+    }
   }
 
   return (
