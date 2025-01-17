@@ -1,29 +1,24 @@
 import { useMoviesContext } from "../hooks/useMoviesContext"
-import Filters from "./Filters"
+import MovieItem from "./MovieItem"
 
 function MoviesContainer() {
   const {movies} = useMoviesContext()
 
-  if(!movies) {
+  if(!movies || movies.length === 0) {
     return (
-    <div className="w-full h-full flex items-center justify-center ">
-        <h3>Search  movies</h3>
+    <div className="w-full  rounded-md flex-grow flex flex-col mt-3 items-center justify-center ">
+        <h3 className="text-white bg-white/5 px-4 py-2 rounded-md font-semibold text-2xl">Search  movies</h3>
       </div>
     )
   }
 
   return (
-    <div className="w-full h-full flex flex-col p-2 overflow-y-scroll">
-      <section className="w-full flex justify-end px-2">
-        <Filters />
-      </section>
-      <section className="flex-1">
+    <div className="w-full grid place-content-center max-w-full rounded-md mt-3 mx-auto">
+      <div className="flex p-4 flex-row overflow-x-scroll gap-x-7 scroll-m-4 snap-x snap-proximity  items-center">
         {movies.map((movie: Movie) => (
-        <article key={movie.id}>
-            <h1>{movie.title}</h1>
-          </article>
+          <MovieItem movie={movie} key={movie.id}/>
         ))}
-      </section>
+      </div>
     </div>
   )
 }
