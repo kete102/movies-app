@@ -1,9 +1,11 @@
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
 import { fetchMovies } from "../services/movies"
 import debounce from "debounce"
+import { useMoviesContext } from "./useMoviesContext"
 
 export function useMovies() {
-  const [movies, setMovies] = useState<Movie[]>([])
+
+  const {addMovies} = useMoviesContext()
 
   const getMovies = async (title: string) => {
     if(!title) {
@@ -13,12 +15,12 @@ export function useMovies() {
 
     const newMovies = await fetchMovies({title})
     console.log({newMovies})
-    setMovies(newMovies)
+    addMovies(newMovies)
   }
 
   const debouncedMovies = useMemo(() => {
     return debounce(getMovies, 300)
   },[])
 
-  return {movies, getMovies: debouncedMovies}
+  return { getMovies: debouncedMovies}
 }
