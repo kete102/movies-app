@@ -1,9 +1,11 @@
-import { useMemo } from "react"
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useMemo, useState } from "react"
 import { fetchMovies } from "../services/movies"
 import debounce from "debounce"
 import { useMoviesContext } from "./useMoviesContext"
 
 export function useMovies() {
+  const [sort, setSort] = useState<boolean>(false)
 
   const {addMovies} = useMoviesContext()
 
@@ -14,7 +16,6 @@ export function useMovies() {
     }
 
     const newMovies = await fetchMovies({title})
-    console.log({newMovies})
     addMovies(newMovies)
   }
 
@@ -22,5 +23,9 @@ export function useMovies() {
     return debounce(getMovies, 300)
   },[])
 
-  return { getMovies: debouncedMovies}
+  return {
+    getMovies: debouncedMovies,
+    sort,
+    setSort
+  }
 }

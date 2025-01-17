@@ -9,6 +9,7 @@ export function useMoviesContext(){
 
   return {
     movies: context.movies,
-    addMovies: context.addMovies
+    addMovies: context.addMovies,
+    sortMovies: context.sortMovies
   }
 }
