@@ -1,34 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Footer from './components/Footer'
+import Form from './components/Form'
+import Header from './components/Header'
+import MoviesContainer from './components/MoviesContainer'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='relative h-screen w-full flex flex-col items-center text-white'>
+      <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      <Header/>
+      <main className='container flex-1 w-full max-w-[1300px] flex flex-col items-center'>
+        <section className='mt-6 w-full'>
+          <Form/>
+        </section>
+        <section className='bg-white/5 rounded-md mt-4 flex-1 w-full'>
+          <MoviesContainer />
+        </section>
+      </main>
+      <Footer/>
+    </div>
   )
 }
 
