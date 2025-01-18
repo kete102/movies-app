@@ -2,6 +2,8 @@
 
 This project is a web application that allows users to search for movies using a movie API. It provides a simple interface to input a search term and filter results. Additionally, it includes advanced functionalities such as movie sorting, error handling, and performance optimization using **debounce**, **useCallback**, **useMemo**, and **useRef**.
 
+![image](https://github.com/user-attachments/assets/4b5bb57d-cffd-4850-b073-fbcc46457459)
+
 ## 🚀 Tenologías
 
 - **React**: JavaScript library for building user interfaces.
