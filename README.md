@@ -9,9 +9,11 @@ This project is a web application that allows users to search for movies using a
 - **React**: JavaScript library for building user interfaces.
 - **TypeScript**: A superset of JavaScript that adds static typing.
 - **Vite**: A fast and optimized build tool for React.
-- **Bootstrap**: CSS library for creating a responsive design.
+- **TailwindCSS**: Utility-first CSS framework for rapidly building custom designs.
+- **Lucide React**: Icon library for React with modern and customizable SVG icons.
+- **SVGL Icons**: Custom SVG icons for unique visuals.
 - **API Fetch**: To make HTTP requests to an external movie API.
-
+- 
 ## 📝 Features
 
 **1. Search movies**
@@ -37,8 +39,10 @@ useMemo: Used to memoize computed results, such as the sorted movie list, avoidi
 ```bash
     git clone git@github.com:kete102/movies-app.git
     cd movies-app
-    pnpm install
+    bun install
 ```
+
+
 
 ## 🔑 Environment Variables
 
