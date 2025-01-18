@@ -29,10 +29,6 @@ Implemented using the useRef hook and setTimeout. The debounce function prevents
 useCallback: Used to memoize event handler functions (handleSubmit, handleSort, etc.) to avoid recreating them on every render, improving performance.
 useMemo: Used to memoize computed results, such as the sorted movie list, avoiding costly recalculations on each render.
 
-**5. Error Handling**
-
-Search errors (such as an empty or too-short search term) are managed and displayed to the user through the error state in the useSearch hook.
-
 ## 🔑 Installation and configuration
 
 
